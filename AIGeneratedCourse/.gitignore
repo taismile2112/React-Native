@@ -1,0 +1,57 @@
+# Node modules
+node_modules/
+
+# Expo
+.expo/
+.expo-shared/
+dist/
+web-build/
+expo-env.d.ts
+
+# React Native Generated
+*.log
+*.tmp
+
+# Native build artifacts
+android/app/build/
+android/.gradle/
+ios/build/
+
+# Ignore the entire iOS/Android if using Expo-only
+/ios
+/android
+
+# Certificates and keys
+*.jks
+*.keystore
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Debug
+npm-debug.*
+yarn-error.*
+yarn-debug.*
+
+# MacOS
+.DS_Store
+
+# Env
+.env*
+.env*.local
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Videos or heavy media
+*.mp4
+*.mov
+*.avi
+
+# Output files
+*.apk
+*.aab
+
+# Other
+app-example
