@@ -42,15 +42,11 @@ export default function PracticeTypeHomeScreen() {
     }
   };
   return (
-    <View
-      style={{
-        marginTop: 45,
-      }}
-    >
+    <View>
       <Image
         source={option.image}
         style={{
-          width: "100%",
+          width: '100%',
           height: 240,
         }}
       />
@@ -68,12 +64,12 @@ export default function PracticeTypeHomeScreen() {
         <Pressable onPress={() => router.back()}>
           <Ionicons
             name="arrow-back"
-            size={24}
+            size={27}
             color="black"
             style={{
               backgroundColor: Colors.WHITE,
               padding: 8,
-              borderRadius: 15,
+              borderRadius: 10,
             }}
           />
         </Pressable>
@@ -85,7 +81,7 @@ export default function PracticeTypeHomeScreen() {
             color: Colors.WHITE,
           }}
         >
-          {type}z
+          {type}
         </Text>
       </View>
 

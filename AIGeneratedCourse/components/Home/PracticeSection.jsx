@@ -13,7 +13,8 @@ export default function PracticeSection() {
       <Text style = {{
         fontFamily  : 'outfit-bold',
         fontSize: 25,
-      }}>Practice</Text>
+        color: Colors.WHITE
+      }}>Practice 🎯</Text>
 
       <View>
         <FlatList 

@@ -38,14 +38,14 @@ export default function ChapterView() {
         <Progress.Bar
           progress={GetProgress()}
           width={Dimensions.get('screen').width * 0.9 }
-          height={15}
+          height={23}
         />
       </View>
 
       {/* SCROLL CONTENT */}
       <ScrollView
         style={{ flex: 1 }}
-        contentContainerStyle={{ paddingTop: 80, paddingBottom: 120 }}  
+        contentContainerStyle={{ paddingTop: 50, paddingBottom: 120 }}  
       >
         <Text style={styles.topic}>
           {chapters?.content[currentPage]?.topic}
@@ -89,7 +89,6 @@ const styles = StyleSheet.create({
 
   stickyProgress: {
     position: 'absolute',
-    top: 40,
     left: 0,
     width: '100%',
     alignItems: 'center',

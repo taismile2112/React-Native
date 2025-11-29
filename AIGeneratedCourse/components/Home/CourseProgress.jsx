@@ -22,7 +22,7 @@ export default function CourseProgress({courseList}) {
         fontSize: 25,
         color: Colors.WHITE
 
-      }}>Progress</Text>
+      }}>Progress 📈</Text>
 
       <FlatList 
         data={courseList}

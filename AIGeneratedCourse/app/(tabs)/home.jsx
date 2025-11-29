@@ -11,6 +11,7 @@ import CourseList from "../../components/Home/CourseList";
 import { PraticeOption } from "../../constant/Option";
 import PracticeSection from "../../components/Home/PracticeSection";
 import CourseProgress from "../../components/Home/CourseProgress";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Home() {
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
@@ -43,44 +44,45 @@ export default function Home() {
   };
 
   return (
-    <FlatList
-      data={[]}
-      onRefresh={() => GetCourseList()}
-      refreshing={loading}
-      ListHeaderComponent={
-        <View
-          style={{
-            flex: 1,
-            backgroundColor: Colors.WHITE,
-          }}
-        >
-          <Image
-            source={require("./../../assets/images/wave.png")}
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: 850,
-            }}
-          />
+ 
+      <FlatList
+        data={[]}
+        onRefresh={() => GetCourseList()}
+        refreshing={loading}
+        ListHeaderComponent={
           <View
             style={{
-              padding: 25,
+              backgroundColor: Colors.WHITE,
             }}
           >
-            <Header />
-            {courseList?.length == 0 ? (
-              <NoCourse />
-            ) : (
-              <View>
-                <CourseProgress courseList={courseList} />
-                <PracticeSection />
-                <CourseList courseList={courseList} />
-                {/* <CourseList courseList={courseList}/> */}
-              </View>
-            )}
+            <Image
+              source={require("./../../assets/images/wave.png")}
+              style={{
+                position: "absolute",
+                width: "100%",
+                height: 850,
+              }}
+            />
+            <View
+              style={{
+                padding: 25,
+              }}
+            >
+              <Header />
+              {courseList?.length == 0 ? (
+                <NoCourse />
+              ) : (
+                <View>
+                  <CourseProgress courseList={courseList} />
+                  <PracticeSection />
+                  <CourseList courseList={courseList} />
+                  {/* <CourseList courseList={courseList}/> */}
+                </View>
+              )}
+            </View>
           </View>
-        </View>
-      }
-    />
+        }
+      />
+
   );
 }

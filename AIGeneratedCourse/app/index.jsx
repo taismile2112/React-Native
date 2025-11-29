@@ -19,7 +19,7 @@ export default function Index() {
       if (user) {
         const result = await getDoc(doc(db, "users", user.email));
         setUserDetail(result.data());
-        router.replace("/(tabs)/home");
+        router.navigate("/(tabs)/home");
       }
       setCheckingAuth(false);
     });

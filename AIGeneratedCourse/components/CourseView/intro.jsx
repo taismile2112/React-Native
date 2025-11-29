@@ -12,7 +12,6 @@ export default function Intro({course}) {
         <Image style = {{
                 width: '100%',
                 height: 280,
-                marginTop: 40,
             }}
             source={imageAssets[course?.banner_image]} />
         <View style = {{
@@ -57,10 +56,9 @@ export default function Intro({course}) {
 
     <Pressable style = {{
         position: 'absolute',
-        paddingTop: 40,
-        marginRight: 30, 
+        padding: 10,
     }}
-        onPress={() => router.back()}>
+        onPress={() => router.push('/(tabs)/home')}>
             <Ionicons name="arrow-back-circle-outline" size={50} color="black" />
     </Pressable>
 

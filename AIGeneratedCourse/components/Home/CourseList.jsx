@@ -16,7 +16,7 @@ export default function CourseList({courseList}) {
       <Text style = {{
         fontFamily : 'outfit-bold',
         fontSize: 25,
-      }}>Courses</Text>
+      }}>Courses 🎓</Text>
 
       <FlatList 
         data={courseList}

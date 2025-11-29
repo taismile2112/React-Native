@@ -27,11 +27,10 @@ export default function ProfileScreen() {
       style={{
         flex: 1,
         padding: 25,
-        marginTop: 20,
         backgroundColor: "#fff",
       }}
     >
-      <Text style={{ fontFamily: "outfit-bold", fontSize: 28 }}>Profile</Text>
+      <Text style={{ fontFamily: "outfit-bold", fontSize: 28 }}>👤 Profile</Text>
 
       <View
         style={{
