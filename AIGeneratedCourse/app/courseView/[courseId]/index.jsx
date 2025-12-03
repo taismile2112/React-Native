@@ -11,8 +11,8 @@ import { db } from "../../../config/firebaseConfig";
 
 
 export default function CourseView() {
-  const { courseParams, courseId } = useLocalSearchParams();
-  const [course, setCourse] = useState([]);
+  const { courseParams, courseId, enroll} = useLocalSearchParams();
+  const [course, setCourse] = useState(null);
   // const course = JSON.parse(courseParams);
   // console.log(courseId);
 
@@ -40,7 +40,7 @@ export default function CourseView() {
             backgroundColor: Colors.WHITE,
           }}
         >
-          <Intro course={course} />
+          <Intro course={course} enroll={enroll}/>
           <Chapters course={course} />
         </View>
       }

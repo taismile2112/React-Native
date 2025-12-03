@@ -4,7 +4,7 @@ import Colors from '../../constant/Colors'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useRouter } from 'expo-router';
 
-export default function CourseListGrid({courseList, option}) {
+export default function CourseListGrid({courseList, option, style}) {
   const router = useRouter();
   const onPress=(course) => {
    
@@ -18,7 +18,7 @@ export default function CourseListGrid({courseList, option}) {
     
   }
   return (
-    <View >
+    <View style={style}>
       <FlatList 
         numColumns={2}
         style = {{

@@ -42,7 +42,9 @@ export default function PracticeTypeHomeScreen() {
     }
   };
   return (
-    <View>
+    <View style={{
+      flex: 1,
+    }}>
       <Image
         source={option.image}
         style={{
@@ -95,7 +97,7 @@ export default function PracticeTypeHomeScreen() {
         />
       )}
 
-      <CourseListGrid courseList={courseList} option={option}/>
+      <CourseListGrid courseList={courseList} option={option} style={{ flex: 1 }}/>
     </View>
   );
 }

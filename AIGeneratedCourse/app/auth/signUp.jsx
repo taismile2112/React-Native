@@ -39,7 +39,7 @@ export default function SignUp() {
         const user = resp.user;
         await SaveUser(user);
 
-        Alert.alert("✅ Success", "Sign up successfully!");
+        Alert.alert("✅ Notification", "Sign up successfully!");
 
         router.replace("/auth/signIn");
       })
@@ -50,11 +50,14 @@ export default function SignUp() {
   };
 
   const SaveUser = async (user) => {
+    const isAdmin = email === "aigencourse@gmail.com"; // email admin bạn quy định
+
     const data = {
       name: fullName,
       email: email,
       uid: user?.uid,
       member: false,
+      role: isAdmin ? "admin" : "user",
     };
 
     await setDoc(doc(db, "users", email), data);
@@ -69,7 +72,7 @@ export default function SignUp() {
         style={styles.topImage}
       />
 
-      <Text style={styles.header}>Create New Account</Text>
+      <Text style={styles.header}>Create Account 🔐</Text>
 
       {/* Full Name Input */}
       <View style={styles.inputContainer}>
@@ -118,7 +121,7 @@ export default function SignUp() {
       <View style={styles.footerText}>
         <Text style={{ fontFamily: "outfit" }}>Already have an account?</Text>
         <Pressable onPress={() => router.push("/auth/signIn")}>
-          <Text style={styles.loginLink}> Sign In</Text>
+          <Text style={styles.loginLink}> 🔑 Sign In</Text>
         </Pressable>
       </View>
     </View>
@@ -141,11 +144,8 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 26,
     fontFamily: "outfit-bold",
-    color: Colors.PRIMARY,
+    // color: Colors.PRIMARY,
     marginTop: 15,
-    textShadowColor: Colors.GRAY,
-    textShadowOffset: { width: 1, height: 2 },
-    textShadowRadius: 1,
   },
 
   inputContainer: {
@@ -153,11 +153,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: "100%",
     borderWidth: 1,
-    borderColor: "#ddd",
+    borderColor: "#E0E0E0",
     padding: 14,
     marginTop: 18,
     borderRadius: 10,
-    backgroundColor: "#fff",
+    backgroundColor: "#F5F5F5",
     gap: 10,
     shadowColor: "#000",
     shadowOpacity: 0.05,

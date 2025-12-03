@@ -6,7 +6,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { useRoute } from '@react-navigation/native';
 import { useRouter } from 'expo-router';
 
-export default function CourseList({courseList}) {
+export default function CourseList({courseList, heading="courses", enroll=false}) {
     const router = useRouter();
 
     return (
@@ -16,7 +16,7 @@ export default function CourseList({courseList}) {
       <Text style = {{
         fontFamily : 'outfit-bold',
         fontSize: 25,
-      }}>Courses 🎓</Text>
+      }}>{heading}</Text>
 
       <FlatList 
         data={courseList}
@@ -27,7 +27,8 @@ export default function CourseList({courseList}) {
                 onPress={() =>router.push({
                     pathname: '/courseView/'+item?.docId,
                     params: {
-                        courseParams: JSON.stringify(item)
+                        courseParams: JSON.stringify(item),
+                        enroll: enroll,
                     }
                 })}
                 key={index} style={styles.courseContainer}>
@@ -39,7 +40,9 @@ export default function CourseList({courseList}) {
 
                     }}
                 />
-                <Text style = {{
+                <Text 
+                numberOfLines={2}
+                style = {{
                     fontFamily: 'outfit-bold',
                     fontSize: 18,
                     marginTop: 10,
@@ -68,9 +71,11 @@ export default function CourseList({courseList}) {
 const styles = StyleSheet.create({
   courseContainer: {
     padding: 10,
-    backgroundColor: Colors.BG_GRAY,
+    backgroundColor: Colors.WHITE,
     margin: 6,
     borderRadius: 15,
+    elevation: 2,
+    borderWidth: 0.1,
     width: 270,
   }
 })

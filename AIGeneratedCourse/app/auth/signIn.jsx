@@ -28,8 +28,8 @@ export default function SignIn() {
   const { setUserDetail } = useContext(UserDetailContext);
 
   const onSignInClick = () => {
-    if (!email) return Alert.alert("⚠️", "Please Enter Your Email!");
-    if (!password) return Alert.alert("⚠️", "Please Enter Your Password!");
+    if (!email) return Alert.alert("⚠️ Warning", "Please Enter Your Email!");
+    if (!password) return Alert.alert("⚠️ Warning", "Please Enter Your Password!");
 
     setLoading(true);
 
@@ -38,12 +38,12 @@ export default function SignIn() {
         const user = resp.user;
         await getUserDetails(user);
         setLoading(false);
-        Alert.alert("✅", "Logged in successfully!");
+        Alert.alert("✅ Notification", "Logged in successfully!");
         router.replace("/(tabs)/home");
       })
       .catch(() => {
         setLoading(false);
-        Alert.alert("❌","Invalid Email or Password");
+        Alert.alert("❌ Error","Invalid Email or Password");
       });
   };
 
@@ -84,6 +84,7 @@ export default function SignIn() {
         <View style={styles.inputContainer}>
           <Ionicons name="lock-closed-outline" size={22} color={Colors.PRIMARY} />
           <TextInput
+
             placeholder="Password"
             placeholderTextColor={Colors.GRAY}
             secureTextEntry={!showPassword}
