@@ -33,9 +33,6 @@
         }
       ]
     ],
-    "experiments": { "typedRoutes": true, "reactCompiler": true },
-        "extra": {
-      "GEMINI_API_KEY": "AIzaSyAGESo-j2yswGlT5qGyGAPoIGqDIcD7RRw"
-    }
+    "experiments": { "typedRoutes": true, "reactCompiler": true }
   }
 }
