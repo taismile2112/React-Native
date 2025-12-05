@@ -36,6 +36,7 @@ export default function EditProfile() {
       Alert.alert("✅ Notification", "Profile is updated successfully!", [
         { text: "OK", onPress: () => router.back() },
       ]);
+      console.log("Email đang dùng để update:", userDetail.email);
     } catch (error) {
       setLoading(false);
       console.log("Lỗi khi cập nhật Firestore:", error);

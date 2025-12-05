@@ -7,7 +7,7 @@ import { Platform } from "react-native";
 
 // Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyC0q0H4zw26nsF7IFckvHGK1oiMJGPI7g0",
+   apiKey: "AIzaSyC0q0H4zw26nsF7IFckvHGK1oiMJGPI7g0",
   authDomain: "ai-generated-course-410be.firebaseapp.com",
   projectId: "ai-generated-course-410be",
   storageBucket: "ai-generated-course-410be.appspot.com",

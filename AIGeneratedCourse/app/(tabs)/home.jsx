@@ -12,6 +12,7 @@ import { PraticeOption } from "../../constant/Option";
 import PracticeSection from "../../components/Home/PracticeSection";
 import CourseProgress from "../../components/Home/CourseProgress";
 import { SafeAreaView } from "react-native-safe-area-context";
+import FadeInView from "../../components/Common/FadeInView";
 
 export default function Home() {
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
@@ -44,7 +45,7 @@ export default function Home() {
   };
 
   return (
- 
+      <FadeInView style={{ flex: 1, backgroundColor: Colors.WHITE }}>
       <FlatList
         data={[]}
         onRefresh={() => GetCourseList()}
@@ -83,6 +84,7 @@ export default function Home() {
           </View>
         }
       />
+      </FadeInView>
 
 
   );

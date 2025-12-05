@@ -3,7 +3,6 @@ import React from 'react'
 import { imageAssets } from '../../constant/Option'
 import Colors from '../../constant/Colors'
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { useRoute } from '@react-navigation/native';
 import { useRouter } from 'expo-router';
 
 export default function CourseList({courseList, heading="courses", enroll=false}) {
@@ -16,6 +15,7 @@ export default function CourseList({courseList, heading="courses", enroll=false}
       <Text style = {{
         fontFamily : 'outfit-bold',
         fontSize: 25,
+        marginBottom: 10 // Thêm khoảng cách nhỏ ở đây
       }}>{heading}</Text>
 
       <FlatList 
@@ -32,38 +32,63 @@ export default function CourseList({courseList, heading="courses", enroll=false}
                     }
                 })}
                 key={index} style={styles.courseContainer}>
+                
+                {/* 1. Hình ảnh khóa học */}
                 <Image source={imageAssets[item.banner_image]}
                     style = {{
                         width: '100%',
                         height: 150,
                         borderRadius: 15,
-
                     }}
                 />
-                <Text 
-                numberOfLines={2}
-                style = {{
-                    fontFamily: 'outfit-bold',
-                    fontSize: 18,
-                    marginTop: 10,
-                }}>{item?.courseTitle}</Text>
-                <View style = {{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    gap: 10,
-                    alignItems: 'center',
-                    marginTop: 5,
-                }}>
-                    <Ionicons name="book-outline" size={24} color="black" />
-                    <Text style = {{
-                    fontFamily: 'outfit',
-                    }}>{item?.chapters?.length} Chapters</Text>
+
+                <View style={{ padding: 5 }}> 
+                    {/* 👇 2. MỚI THÊM: Tên Danh Mục (Category) */}
+                    <View style={{
+                        marginTop: 8,
+                        marginBottom: 2,
+                        alignSelf: 'flex-start',
+                        paddingHorizontal: 8,
+                        paddingVertical: 3,
+                        backgroundColor: '#e6f2ff', // Màu nền xanh nhạt
+                        borderRadius: 5,
+                    }}>
+                        <Text style={{
+                            fontFamily: 'outfit',
+                            fontSize: 12,
+                            color: '#0b76f8ff' // Màu chữ xanh dương (Primary)
+                        }}>
+                            {item?.category}
+                        </Text>
+                    </View>
+                    {/* 👆 KẾT THÚC PHẦN MỚI THÊM */}
+
+                    {/* 3. Tên khóa học */}
+                    <Text 
+                    numberOfLines={2}
+                    style = {{
+                        fontFamily: 'outfit-bold',
+                        fontSize: 18,
+                        marginTop: 5, // Chỉnh lại margin cho cân đối
+                    }}>{item?.courseTitle}</Text>
+                    
+                    {/* 4. Số chương (Chapters) */}
+                    <View style = {{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        gap: 10,
+                        alignItems: 'center',
+                        marginTop: 5,
+                    }}>
+                        <Ionicons name="book-outline" size={24} color="black" />
+                        <Text style = {{
+                        fontFamily: 'outfit',
+                        }}>{item?.chapters?.length} Chapters</Text>
+                    </View>
                 </View>
                 
             </TouchableOpacity>
         )} />
-
-      
     </View>
   )
 }
@@ -76,6 +101,6 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     elevation: 2,
     borderWidth: 0.1,
-    width: 270,
+    width: 270, // Chiều rộng thẻ
   }
 })
