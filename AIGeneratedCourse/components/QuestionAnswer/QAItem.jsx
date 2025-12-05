@@ -30,8 +30,8 @@ export default function QAItem({
   }));
 
   const animatedAnswer = useAnimatedStyle(() => ({
-    maxHeight: maxHeight.value, // ⭐ chỉ cái này là đủ
-    opacity: isOpen ? 1 : 0,
+    maxHeight: maxHeight.value,
+    opacity: withTiming(isOpen ? 1 : 0, { duration: 200 }),
   }));
 
   return (
@@ -40,7 +40,7 @@ export default function QAItem({
       onPress={() => setselectedQuestion(isOpen ? null : index)}
     >
       <View style={styles.row}>
-        <Text style={styles.question}>{item.question}</Text>
+        <Text style={styles.question}>❓ {item.question}</Text>
 
         <Animated.View style={animatedIcon}>
           <Ionicons
@@ -51,17 +51,21 @@ export default function QAItem({
         </Animated.View>
       </View>
 
-      {/* hidden measure box */}
+      {/* hidden measure */}
       <View
         style={styles.hiddenMeasureBox}
         onLayout={(e) => setContentHeight(e.nativeEvent.layout.height)}
       >
-        <Text style={styles.answer}>{item.answer}</Text>
+        <View style={styles.answerInner}>
+          <Text style={styles.answer}>{item.answer}</Text>
+        </View>
       </View>
 
-      {/* actual animated answer */}
+      {/* animated answer */}
       <Animated.View style={[styles.answerBox, animatedAnswer]}>
-        <Text style={styles.answer}>💡 {item.answer}</Text>
+        <View style={styles.answerInner}>
+          <Text style={styles.answer}>💡 {item.answer}</Text>
+        </View>
       </Animated.View>
     </Pressable>
   );
@@ -76,35 +80,44 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     elevation: 3,
   },
+
   row: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    gap: 5,
   },
+
   question: {
     fontFamily: "outfit-bold",
-    fontSize: 16,
+    fontSize: 15,
     flexShrink: 1,
   },
 
+  /* animation wrapper */
   answerBox: {
-    overflow: "hidden", // ⭐ BẮT BUỘC
-    marginTop: 10,
+    overflow: "hidden",
+    marginTop: 12, // ⭐ khoảng cách giữa question & answer → KHÔNG gây giật
     borderTopWidth: 0.3,
+    borderColor: "#ccc",
   },
 
+  /* phần đo height — KHÔNG để margin/padding */
   hiddenMeasureBox: {
     position: "absolute",
-
-    left: 0,
     opacity: 0,
+    left: 0,
+    right: 0,
+  },
+
+  /* phần content thật — padding đặt ở đây → animation mượt */
+  answerInner: {
+    paddingTop: 10,
+    paddingBottom: 10,
   },
 
   answer: {
     fontFamily: "outfit",
-    fontSize: 16,
+    fontSize: 15,
     color: Colors.GREEN,
-    marginTop: 10,
   },
 });
