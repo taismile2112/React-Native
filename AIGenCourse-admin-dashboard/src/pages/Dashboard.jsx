@@ -26,18 +26,18 @@ const Dashboard = ({ courses, users, quizzes = [], qna = [] }) => {
 
   return (
     <div className="p-6 space-y-8">
-      <h1 className="text-3xl font-extrabold text-gray-900">Tổng Quan Hệ Thống</h1>
+      <h1 className="text-3xl font-extrabold text-gray-900">OverView</h1>
       
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <StatCard title="Tổng số Khóa học" value={totalCourses} icon={BookOpen} color="text-indigo-600" />
-        <StatCard title="Tổng số Người dùng" value={users.length} icon={Users} color="text-green-600" />
-        <StatCard title="Lượt tạo nội dung AI" value={`${totalAIUsage} lần`} icon={Zap} color="text-red-600" />
-        <StatCard title="Quiz đã tạo" value={totalQuizzes} icon={ClipboardList} color="text-yellow-600" />
+        <StatCard title="Total Courses" value={totalCourses} icon={BookOpen} color="text-indigo-600" />
+        <StatCard title="Total Users" value={users.length} icon={Users} color="text-green-600" />
+        <StatCard title="AI Content Generation" value={`${totalAIUsage} Times`} icon={Zap} color="text-red-600" />
+        <StatCard title="Created Quiz" value={totalQuizzes} icon={ClipboardList} color="text-yellow-600" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="bg-white p-6 rounded-xl shadow-lg">
-          <h2 className="text-xl font-semibold mb-4 text-gray-800">Tình Trạng Khóa Học</h2>
+          <h2 className="text-xl font-semibold mb-4 text-gray-800">Course Status</h2>
           <div className="space-y-3">
             <div className="flex justify-between items-center">
               <span className="text-gray-600">Active</span>
@@ -57,11 +57,11 @@ const Dashboard = ({ courses, users, quizzes = [], qna = [] }) => {
         </div>
 
         <div className="bg-white p-6 rounded-xl shadow-lg">
-          <h2 className="text-xl font-semibold mb-4 text-gray-800">Cần Chú Ý</h2>
+          <h2 className="text-xl font-semibold mb-4 text-gray-800">Note</h2>
           <div className="text-center py-6">
             <HelpCircle size={40} className="mx-auto mb-3 text-red-500" />
             <p className="text-4xl font-bold text-gray-900">{totalPendingQnA}</p>
-            <p className="text-lg text-gray-600">Câu hỏi Q&A đang chờ duyệt/trả lời</p>
+            <p className="text-lg text-gray-600">Q&A questions are pending approval/answering</p>
           </div>
         </div>
       </div>

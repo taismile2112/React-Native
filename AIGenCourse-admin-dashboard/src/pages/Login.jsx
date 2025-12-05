@@ -59,12 +59,12 @@ const Login = () => {
       if (err.message === 'no-data') msg = 'Dữ liệu tài khoản không tồn tại.';
       
       // Các lỗi từ Firebase
-      if (err.code === 'auth/invalid-email') msg = 'Email không hợp lệ.';
-      if (err.code === 'auth/user-not-found') msg = 'Không tìm thấy tài khoản.';
-      if (err.code === 'auth/wrong-password') msg = 'Sai mật khẩu.';
+      if (err.code === 'auth/invalid-email') msg = 'Invalid Email!';
+      if (err.code === 'auth/user-not-found') msg = 'Account isn`t exist!';
+      if (err.code === 'auth/wrong-password') msg = 'Wrong Password!';
       
       // Đây là lỗi bạn đang gặp phải:
-      if (err.code === 'auth/invalid-credential') msg = 'Email hoặc mật khẩu không chính xác (hoặc tài khoản chưa được tạo).';
+      if (err.code === 'auth/invalid-credential') msg = 'Email Or Password is not correct! (Or Account have not created yet).';
       
       setError(msg);
     } finally {
@@ -73,14 +73,14 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center p-4">
+    <div className="min-h-screen flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-2xl shadow-2xl overflow-hidden transform transition-all hover:scale-[1.01]">
         <div className="bg-white p-8 pb-0 text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-100 text-indigo-600 mb-4">
             <Lock size={32} />
           </div>
           <h2 className="text-3xl font-extrabold text-gray-900 mb-2">Admin Portal</h2>
-          <p className="text-gray-500">Đăng nhập hệ thống (Session Mode)</p>
+          
         </div>
 
         <form onSubmit={handleLogin} className="p-8 space-y-6">
@@ -98,7 +98,7 @@ const Login = () => {
                 type="email"
                 required
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all bg-gray-50 focus:bg-white"
-                placeholder="Email quản trị viên"
+                placeholder="Administrator Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -110,7 +110,7 @@ const Login = () => {
                 type="password"
                 required
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all bg-gray-50 focus:bg-white"
-                placeholder="Mật khẩu"
+                placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -122,7 +122,7 @@ const Login = () => {
             disabled={loading}
             className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
           >
-            {loading ? <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div> : 'Đăng Nhập'}
+            {loading ? <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div> : 'Login'}
           </button>
         </form>
       </div>

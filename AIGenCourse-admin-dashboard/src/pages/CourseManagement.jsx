@@ -349,7 +349,7 @@ const CourseManagement = ({ courses: initialCourses }) => {
   };
 
   const handleUpdateTitle = async (courseId, newTitle) => {
-    const title = prompt("Nhập tên mới cho khóa học:", newTitle);
+    const title = prompt("Enter a new name for the course:", newTitle);
     if (title && title !== newTitle) {
       try {
         await updateDoc(doc(db, "courses", courseId), { courseTitle: title });
@@ -689,7 +689,7 @@ const CourseManagement = ({ courses: initialCourses }) => {
     <div className="p-6 space-y-6">
       <div className="flex justify-between items-end">
         <h1 className="text-3xl font-extrabold text-gray-900">
-          Quản Lý Khóa Học
+          Course Management
         </h1>
       </div>
 
@@ -697,7 +697,7 @@ const CourseManagement = ({ courses: initialCourses }) => {
         <div className="relative flex-1">
           <input
             type="text"
-            placeholder="Tìm khóa học theo tên hoặc danh mục..."
+            placeholder="Find course by name or category..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 shadow-sm"
