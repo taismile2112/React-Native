@@ -50,7 +50,13 @@ export default {
       - "chapters": 3–5 chapters
         - each chapter has "chapterName" and "content" array (3–4 content items)
           - each content item has "topic", "explain" (max 3 sentences), "code" (max 5 lines), "example" (1–2 lines)
-      - "quiz": 4 questions, each with "question", "options" ["a","b","c","d"], "correctAns"
+      - "quiz": 4 questions
+      - each quiz item must have:
+        - "question": string
+        - "options": an array of exactly 4 strings, e.g.
+          ["A styling library", "A layout module for arranging items", "A component for handling user input", "A data storage solution"]
+          - IMPORTANT: Do NOT include labels like "a." or "b." inside option strings.
+        - "correctAns": must be exactly one of the option strings (match must be exact, including punctuation and casing)
       - "flashcards": 4 items, each with "front" and "back"
       - "qa": 4 items, each with "question" and "answer"
 
