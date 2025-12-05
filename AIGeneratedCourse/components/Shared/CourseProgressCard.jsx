@@ -3,10 +3,9 @@ import React from "react";
 import Colors from "../../constant/Colors";
 import { imageAssets } from "../../constant/Option";
 import * as Progress from "react-native-progress";
-import AntDesign from "@expo/vector-icons/AntDesign";
+import { AntDesign } from "@expo/vector-icons";
 
 export default function CourseProgressCard({ item, width = 280 }) {
-  
   const GetCompletedChapters = (course) => {
     // Kiểm tra an toàn dữ liệu
     const completedLength = course?.completedChapter?.length || 0;
@@ -24,6 +23,7 @@ export default function CourseProgressCard({ item, width = 280 }) {
         padding: 15,
         backgroundColor: Colors.WHITE,
         borderRadius: 15,
+        margin: 10,
         width: width,
         // Hiệu ứng đổ bóng (Shadow)
         shadowColor: "#000",
@@ -51,7 +51,7 @@ export default function CourseProgressCard({ item, width = 280 }) {
         <View
           style={{
             flexShrink: 1,
-            justifyContent: 'center'
+            justifyContent: "center",
           }}
         >
           <Text
@@ -60,7 +60,7 @@ export default function CourseProgressCard({ item, width = 280 }) {
               fontFamily: "outfit-bold",
               fontSize: 17,
               flexWrap: "wrap",
-              color: Colors.BLACK
+              color: Colors.BLACK,
             }}
           >
             {item?.courseTitle}
@@ -71,7 +71,7 @@ export default function CourseProgressCard({ item, width = 280 }) {
               fontFamily: "outfit",
               fontSize: 14,
               color: Colors.GRAY,
-              marginTop: 4
+              marginTop: 4,
             }}
           >
             {item?.chapters?.length} Chapters
@@ -92,7 +92,7 @@ export default function CourseProgressCard({ item, width = 280 }) {
           unfilledColor="#E0E0E0"
           borderWidth={0}
           borderRadius={5}
-          style={{ width: '100%' }} // Bắt buộc set width 100% nếu dùng width={null}
+          style={{ width: "100%" }} // Bắt buộc set width 100% nếu dùng width={null}
         />
 
         <View
@@ -100,29 +100,35 @@ export default function CourseProgressCard({ item, width = 280 }) {
             marginTop: 8,
             flexDirection: "row",
             alignItems: "center",
-            justifyContent: "space-between" // Đẩy text sang 2 bên
+            justifyContent: "space-between", // Đẩy text sang 2 bên
           }}
         >
-          <View style={{flexDirection: 'row', alignItems: 'center', gap: 6}}>
-             <AntDesign 
-                name={isCompleted ? "checkcircle" : "play"} 
-                size={20} 
-                color={isCompleted ? Colors.GREEN : Colors.PRIMARY} 
-             />
-             <Text
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
+            <AntDesign
+              name={isCompleted ? "check-circle" : "caret-right"}
+              size={20}
+              color={isCompleted ? Colors.GREEN : Colors.PRIMARY}
+            />
+            <Text
               style={{
                 fontFamily: "outfit",
                 fontSize: 13,
-                color: Colors.GRAY
+                color: Colors.GRAY,
               }}
             >
               {item?.completedChapter?.length ?? 0} / {item.chapters?.length}{" "}
               Completed
             </Text>
           </View>
-          
-          <Text style={{fontFamily: 'outfit-bold', fontSize: 13, color: Colors.PRIMARY}}>
-              {Math.round(progress * 100)}%
+
+          <Text
+            style={{
+              fontFamily: "outfit-bold",
+              fontSize: 13,
+              color: Colors.PRIMARY,
+            }}
+          >
+            {Math.round(progress * 100)}%
           </Text>
         </View>
       </View>

@@ -58,16 +58,16 @@ export default function Explore() {
               borderColor: Colors.GRAY,
               elevation: 2
           }}>
-              <Ionicons name="search" size={24} color={Colors.GRAY} style={{marginRight: 10}} />
+              <Ionicons name="search" size={30} color={Colors.PRIMARY} style={{marginRight: 10}} />
               <TextInput 
-                  placeholder="Tìm kiếm khóa học..." 
+                  placeholder="Search course..." 
                   style={{fontFamily: 'outfit', fontSize: 16, flex: 1}}
                   onChangeText={(text) => setSearchInput(text)}
                   value={searchInput}
               />
               {searchInput.length > 0 && (
                 <TouchableOpacity onPress={() => setSearchInput('')}>
-                    <Ionicons name="close-circle" size={24} color={Colors.GRAY} />
+                    <Ionicons name="close-circle" size={30} color={Colors.RED} />
                 </TouchableOpacity>
               )}
           </View>

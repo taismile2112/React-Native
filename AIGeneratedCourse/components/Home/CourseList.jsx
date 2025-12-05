@@ -97,10 +97,10 @@ const styles = StyleSheet.create({
   courseContainer: {
     padding: 10,
     backgroundColor: Colors.WHITE,
-    margin: 6,
     borderRadius: 15,
+    margin: 5,
     elevation: 2,
-    borderWidth: 0.1,
+    borderWidth: 0.5,
     width: 270, // Chiều rộng thẻ
   }
 })
