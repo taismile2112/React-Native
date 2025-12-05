@@ -38,8 +38,8 @@ yarn-debug.*
 .DS_Store
 
 # Env
-.env*
-.env*.local
+# .env*
+# .env*.local
 
 # TypeScript build info
 *.tsbuildinfo
