@@ -11,14 +11,14 @@ import { auth } from '../firebase';
 const Sidebar = ({ activePage, setActivePage }) => {
 
   const navItems = [
-    { id: 'dashboard', label: 'Tổng Quan', icon: LayoutDashboard },
-    { id: 'courses', label: 'Quản Lý Khóa Học', icon: BookOpen },
-    { id: 'users', label: 'Quản Lý Người Dùng', icon: Users },
-    { id: 'ai-settings', label: 'Cấu Hình AI', icon: Settings },
+    { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
+    { id: 'courses', label: 'Course Management', icon: BookOpen },
+    { id: 'users', label: 'User Management', icon: Users },
+    { id: 'ai-settings', label: 'AI Configuration', icon: Settings },
   ];
 
   const handleLogout = async () => {
-    if (window.confirm("Bạn có chắc muốn đăng xuất?")) {
+    if (window.confirm("Do you want to log out?")) {
       try {
         await signOut(auth);
       } catch (error) {
@@ -65,7 +65,7 @@ const Sidebar = ({ activePage, setActivePage }) => {
           className="flex items-center w-full p-3 rounded-xl text-red-400 hover:bg-red-500/10 hover:text-red-300 transition duration-200"
         >
           <LogOut size={20} className="mr-3" />
-          <span className="font-medium">Đăng Xuất</span>
+          <span className="font-medium">Log Out</span>
         </button>
       </div>
 
